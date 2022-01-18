@@ -1,0 +1,69 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+    <UserSecretsId>25957762-73cf-47f8-97e1-9f4f9b65b7b4</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Auth\**" />
+    <Compile Remove="ScoreUp.Core\**" />
+    <Compile Remove="ScoreUp.Data\**" />
+    <Compile Remove="ScoreUp\**" />
+    <Content Remove="Auth\**" />
+    <Content Remove="ScoreUp.Core\**" />
+    <Content Remove="ScoreUp.Data\**" />
+    <Content Remove="ScoreUp\**" />
+    <EmbeddedResource Remove="Auth\**" />
+    <EmbeddedResource Remove="ScoreUp.Core\**" />
+    <EmbeddedResource Remove="ScoreUp.Data\**" />
+    <EmbeddedResource Remove="ScoreUp\**" />
+    <None Remove="Auth\**" />
+    <None Remove="ScoreUp.Core\**" />
+    <None Remove="ScoreUp.Data\**" />
+    <None Remove="ScoreUp\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Pages\Score\Details.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\Permission.cshtml" />
+    <Content Remove="Pages\Roles.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\Auth\Roles.cshtml" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="Cuemon.Extensions.AspNetCore.Mvc.Formatters.Newtonsoft.Json" Version="6.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.12">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.OpenApi" Version="1.2.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <ProjectReference Include="ScoreUp.Core\ScoreUp.Core.csproj" />
+    <ProjectReference Include="ScoreUp.Data\ScoreUp.Data.csproj" />
+  </ItemGroup>
+
+</Project>

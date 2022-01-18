@@ -1,0 +1,54 @@
+﻿@page  
+@model ScoreUp.Pages.Auth.UserRolesController
+@{
+}
+
+<h3>Gestisci ruolo per @Model.IdentityUser.UserName</h3>
+<br />
+<div class="card">
+
+    <div id="viewAll" class="card-body table-responsive">
+        <form asp-controller="userroles" method="post" asp-action="update" asp-route-id="@Model.IdentityUserRoles.UserId" class="d-inline">
+            <input asp-for="@Model.IdentityUserRoles.UserId" type="hidden" />
+
+            <table class="table table-striped" id="userRolesTable">
+                <thead>
+                    <tr>
+                        <th>
+                            Ruolo
+                        </th>
+                        <th>
+                            Stato
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @for (int i = 0; i < Model.IdentityUserRoles.UserRoles.Count(); i++)
+                    {
+                        <tr>
+                            <td>
+                                <input asp-for="@Model.IdentityUserRoles.UserRoles[i].RoleName" type="hidden" />
+                                @Model.IdentityUserRoles.UserRoles[i].RoleName
+                            </td>
+                            <td>
+                                <div class="form-check m-1">
+                                    <input asp-for="@Model.IdentityUserRoles.UserRoles[i].Selected" class="form-check-input" />
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div class="col-sm-12" style=" padding: 20px 20px 0px 0px">
+                <button type="submit" id="save" class="btn btn-success">
+                    <i class="fa fa-check"></i>
+                    Salva
+                </button>
+                <a class="btn btn-danger"
+                   asp-page="./User"> Torna indietro </a>
+            </div>
+        </form>
+    </div>
+</div>

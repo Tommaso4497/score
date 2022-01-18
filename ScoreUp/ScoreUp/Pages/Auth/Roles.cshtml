@@ -1,0 +1,69 @@
+﻿@page
+@model ScoreUp.Pages.Auth.RolesController
+@{ Layout = "_Layout"; 
+    }
+
+<h1>Ruoli</h1>
+<br />
+<form method="post" asp-action="addrole" asp-controller="roles">
+    <div class="input-group">
+        <input name="roleName" class="form-control w-25">
+        <span class="input-group-btn">
+            <button class="btn btn-info">Aggiungi un nuovo ruolo</button>
+        </span>
+    </div>
+</form>
+<table class="table table-striped" id="roleTable">
+    <thead>
+        <tr>
+            <th>
+                Ruolo
+            </th>
+            <th>
+                Id
+            </th>
+
+            <th style="width:10%">
+                Azioni
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var role in Model.IdentityRole)
+        {
+<tr>
+    <td>
+        @role.Name
+    </td>
+    <td>
+        @role.Id
+    </td>
+    <td class="text-right">
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Azioni
+            </button>
+            <div class="dropdown-menu shadow animated--grow-in">
+                <a class="dropdown-item">
+                    <i class="fas fa-pencil-alt"></i> Modifica
+                </a>
+                @if (role.Name != "SuperAdmin")
+                {
+<form class="d-inline">
+    <a class="dropdown-item" asp-page="./DeleteRoles" asp-route-id="@role.Id">
+        <i class="fas fa-trash-alt"></i> Elimina
+    </a>
+</form>}
+
+                @if (role.Name != "SuperAdmin")
+                {
+<a style='margin-right:16px' asp-page="./Permissions" asp-route-id="@role.Id" class="dropdown-item">
+    <i class="fas fa-wrench"></i> Modifica Permessi
+</a>}
+            </div>
+        </div>
+    </td>
+</tr>            }
+    </tbody>
+</table>

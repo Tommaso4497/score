@@ -1,0 +1,13 @@
+﻿@page
+@model ScoreUp.Pages.ListModel
+@{ ViewData["Title"] = "Lista RecordMan";
+}
+<h1 style="padding-bottom:20px">Lista dei Recordman</h1>
+<span> </span>
+<div style="padding-bottom: 20px;">
+    @foreach (var recordman in Model.ScoreRecordMan)
+    {
+        <partial name="_SummaryBestRecord" model="recordman" />
+        <span></span>
+    }
+</div>

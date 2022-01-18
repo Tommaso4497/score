@@ -1,0 +1,21 @@
+﻿@using ScoreUp.Core.Entities
+@model RecordInfo
+
+
+<div style="padding-top: 20px; ">
+    <div class="card">
+        <div class="card-header">
+            <h3>Giocatore: @Model.Nome</h3>
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+
+                <li class="list-group-item">Nome Giocatore: @Model.Nome</li>
+                <li class="list-group-item">Cognome Giocatore: @Model.Cognome</li>
+                <li class="list-group-item">Numeri di Record: @Model.RecordPartite</li>
+               
+            </ul>
+        </div>
+       
+    </div>
+</div>

@@ -1,0 +1,15 @@
+﻿@page
+@model ScoreUp.Pages.Auth.DeleteUserModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<h2>Elimina utente @Model.Identity.UserName</h2>
+<div class="alert alert-danger">
+    Stai per eliminare @Model.Identity.UserName, sei sicuro?
+</div>
+<form method="post">
+    <button type="submit" class="btn btn-danger">Elimina</button>
+    <a asp-page="User" class="btn btn-default">Annulla</a>
+</form>

@@ -1,0 +1,38 @@
+﻿@inject IAuthorizationService AuthorizationService
+@using ScoreUp.Costant
+@using Microsoft.AspNetCore.Authorization
+@using ScoreUp.Core
+@model UserInfo
+<div style="padding-top: 20px; ">
+    <div class="card">
+        <div class="card-header">
+            <h3>Utente: @Model.PlayerName</h3>
+
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Cognome: @Model.PlayerSurname</li>
+
+                <li class="list-group-item">Età: @Model.Age</li>
+            </ul>
+        </div>
+
+        <div class="card-footer">
+            <a class="btn btn-outline-primary"
+               asp-page="./DetailPlayer"
+               asp-route-id="@Model.Id"> Dettagli </a>
+            @if ((AuthorizationService.AuthorizeAsync(User, Permissions.Operations.Edit)).Result.Succeeded)
+            {
+                <a class="btn btn-outline-primary"
+                   asp-page="./EditPlayer"
+                   asp-route-id="@Model.Id"> Modifica </a>}
+
+            @if ((AuthorizationService.AuthorizeAsync(User, Permissions.Operations.Delete)).Result.Succeeded)
+            {             <a class="btn btn-danger"
+                   asp-page="./DeletePlayer"
+                   asp-route-id="@Model.Id"> Elimina </a>
+            }
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,36 @@
+﻿@page "{id:int}"
+
+@model ScoreUp.Pages.Player.DetailPlayerModel
+
+@{ ViewData["Title"] = "Detail";
+}
+
+<h2>Dettagli del Profilo </h2>
+
+@if (Model.Message != null)
+{
+    <div class="alert-info">@Model.Message</div>
+}
+
+
+<div style="padding-top: 20px; ">
+    <div class="card">
+        <div class="card-header">
+            <h3>Nome: @Model.UserInfo.PlayerName</h3>
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush"> 
+                <li class="list-group-item">Cognome: @Model.UserInfo.PlayerSurname</li>
+          
+                <li class="list-group-item">Id: @Model.UserInfo.Id</li>
+            </ul>
+        </div>
+        <div class="card-footer">
+            <a class="btn btn-outline-primary"
+               asp-page="./ListPlayer"> Torna indietro </a>
+
+        </div>
+    </div>
+</div>
+
+

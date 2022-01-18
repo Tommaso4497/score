@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "restored": true,
+      "restoreTime": "2021-11-08T11:04:31.7722469Z"
+    },
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2021-11-08T11:04:39.3967901Z"
+    }
+  },
+  "parameters": {
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "c559b3b7-f5f5-432a-8541-c8a0e149d880"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "ScoreUpResource"
+    }
+  }
+}

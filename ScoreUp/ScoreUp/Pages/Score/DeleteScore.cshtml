@@ -1,0 +1,15 @@
+﻿@page "{id:int}"
+@model ScoreUp.Pages.Score.DeleteScoreModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<h2>Stai per eliminare questo punteggio!</h2>
+<div class="alert alert-danger">
+    Sei sicuro ?
+</div>
+<form method="post">
+    <button type="submit" class="btn btn-danger">Elimina</button>
+    <a asp-page="ListScore" class="btn btn-default">Annulla</a>
+</form>

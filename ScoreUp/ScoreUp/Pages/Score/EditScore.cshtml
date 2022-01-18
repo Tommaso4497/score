@@ -1,0 +1,40 @@
+﻿@page "{id:int?}"
+@model ScoreUp.Pages.Score.CreateEditScore
+
+@{
+    ViewData["Title"] = "Aggiungi Punteggio";
+}
+
+<h1>Punteggio</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ScoreInfo.Score_Point" class="control-label">Punteggio</label>
+                <input asp-for="ScoreInfo.Score_Point" class="form-control" />
+                <span asp-validation-for="ScoreInfo.Score_Point" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ScoreInfo.GameRefId" class="control-label">Gioco</label>
+                <select asp-for="ScoreInfo.GameRefId" class="form-control" asp-items="ViewBag.Gioco"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ScoreInfo.UserRefId" class="control-label">Giocatore</label>
+                <select asp-for="ScoreInfo.UserRefId" class="form-control" asp-items="ViewBag.Giocatore"></select>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-outline-primary">Salva</button>
+                <a asp-page="ListScore" class="btn btn-danger">Annulla</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

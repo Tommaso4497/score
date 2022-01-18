@@ -1,0 +1,15 @@
+﻿@page
+@model ScoreUp.Pages.Auth.DeleteRoles
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<h2>Elimina Ruolo @Model.RolesIdentity.RoleId</h2>
+<div class="alert alert-danger">
+    Stai per eliminare questo ruolo e tutti i permessi a lui associati, sei sicuro?
+</div>
+<form method="post">
+    <button type="submit" class="btn btn-danger">Elimina</button>
+    <a asp-page="Roles" class="btn btn-default">Annulla</a>
+</form>

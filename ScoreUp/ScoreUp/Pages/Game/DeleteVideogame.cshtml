@@ -1,0 +1,15 @@
+﻿@page "{id:int}"
+@model ScoreUp.Pages.Game.DeleteGameModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<h2>Elimina Gioco @Model.GameInfo.Title!</h2>
+<div class="alert alert-danger">
+    Sei sicuro di voler eliminare  @Model.GameInfo.Title? Eliminerai anche tutti i punteggi associati.
+</div>
+<form method="post">
+    <button type="submit" class="btn btn-danger">Elimina</button>
+    <a asp-page="ListGame" class="btn btn-default">Annulla</a>
+</form>

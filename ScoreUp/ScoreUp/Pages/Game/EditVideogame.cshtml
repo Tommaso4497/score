@@ -1,0 +1,43 @@
+﻿@page "{id:int?}"
+@model ScoreUp.Pages.Game.CreateEditGameModel
+
+@{
+    ViewData["Title"] = "Videogioco";
+}
+
+<h1>Videogioco</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="GameInfos.Title" class="control-label">Titolo</label>
+                <input asp-for="GameInfos.Title" class="form-control" />
+                <span asp-validation-for="GameInfos.Title" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="GameInfos.Genre" class="control-label">Genere del Videogioco</label>
+
+                <select asp-for="GameInfos.Genre" asp-items=Model.Genre class="form-control"></select>
+                <span asp-validation-for="GameInfos.Genre" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-outline-primary">Salva</button>
+                <a asp-page="ListGame" class="btn btn-danger">Annulla</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

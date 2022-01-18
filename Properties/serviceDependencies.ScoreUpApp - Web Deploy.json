@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/scoreup/databases/ScoreUp",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:Connection",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}

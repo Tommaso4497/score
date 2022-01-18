@@ -1,0 +1,42 @@
+﻿@page
+@model ScoreUp.Pages.ListModel
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+@using ScoreUp.Costant
+@{ ViewData["Title"] = "Lista Giochi";
+}
+
+
+<h1 style="padding-bottom:20px">Lista Giochi</h1>
+<span> </span>
+
+
+<form method="get">
+    <div class="form-group">
+
+        <div class="input-group rounded">
+            <input type="search" class="form-control rounded" placeholder="Cerca gioco" aria-label="Cerca"
+                   aria-describedby="search-addon" asp-for="SearchTerms" />
+
+            <button class="btn btn-outline-primary">Cerca</button>
+
+        </div>
+    </div>
+    @if ((AuthorizationService.AuthorizeAsync(User, Permissions.Operations.Create)).Result.Succeeded)
+    {
+        <a class="btn btn-outline-primary" asp-page=".\EditVideogame">Aggiungi nuovo gioco</a>
+    }
+
+</form>
+
+
+
+<div style="padding-bottom: 20px;">
+    @foreach (var game in Model.GameInfos)
+    {
+        <partial name="_SummaryGame" model="game" />
+        <span></span>
+    }
+</div>
+
+

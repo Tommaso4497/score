@@ -1,0 +1,43 @@
+﻿
+@page
+@inject IAuthorizationService AuthorizationService
+@using ScoreUp.Costant
+@using Microsoft.AspNetCore.Authorization
+
+@model ScoreUp.Pages.ListModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Lista Punteggi";
+}
+
+
+<h1 style="padding-bottom:20px">Lista dei Punteggi</h1>
+<span> </span>
+
+<form method="get">
+    <div class="form-group">
+        <div class="input-group rounded">
+            <input type="search" class="form-control rounded" placeholder="Cerca Punteggio" aria-label="Cerca"
+                   aria-describedby="search-addon" asp-for="SearchTerms" />
+            <button class="btn btn-outline-primary">Cerca</button>
+        </div>
+    </div>
+    @if ((AuthorizationService.AuthorizeAsync(User, Permissions.Operations.Create)).Result.Succeeded)
+    {
+        <a class="btn btn-outline-primary" asp-page="EditScore">Inserisci un nuovo punteggio</a>
+    }
+</form>
+
+<div style="padding-bottom: 20px;">
+    @foreach (var score in Model.Scores)
+    {
+        <partial name="_SummaryScores" model="score" />
+        <span></span>
+    }
+</div>
+
+<vc:pagination values="Model." route-data="Model.LinkData" />
+
+
+
+

@@ -1,0 +1,63 @@
+﻿@page
+@model ScoreUp.Pages.Auth.UsersController
+@{
+    Layout = "_Layout";
+}
+<h1>Lista degli Utenti</h1>
+<br />
+<table class="table table-striped" id="userTable">
+    <thead>
+        <tr>
+            <th>
+                Utente
+            </th>
+            <th>
+                Email
+            </th>
+            <th style="width:10%">
+                Azioni
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.IdentityUser)
+        {
+<tr>
+    <td>
+        <div class="row">
+            <div class="col-sm">
+                <a>
+                 Username: @user.UserName
+                </a>
+                <br>
+                <small>
+                 Id: @user.Id
+                </small>
+            </div>
+        </div>
+    </td>
+    <td>
+        <a>
+            @user.Email
+        </a>
+    </td>
+    <td>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Azioni
+            </button>
+            <div class="dropdown-menu shadow animated--grow-in">
+                <a style='margin-right:16px' asp-page="./DeleteUser" asp-route-id="@user.Id" class="dropdown-item">
+                    <i class="fas fa-wrench"></i> Elimina Utente
+                </a>
+                
+                    <a style='margin-right:16px' asp-page="./UserRoles" asp-route-id="@user.Id" class="dropdown-item">
+                        <i class="fas fa-wrench"></i> Gestisci Ruolo
+                    </a>
+                </div>
+            </div>
+</td>
+</tr>
+}
+    </tbody>
+</table>

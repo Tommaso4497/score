@@ -1,0 +1,37 @@
+﻿@page "{id:int?}"
+@model ScoreUp.Pages.Player.CreateEditPlayerModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Modifica: @Model.UserInfos.PlayerName </h2>
+
+<form method="post">
+
+    <input type="hidden" asp-for="UserInfos.Id" />
+    <div class="form-group">
+        <label asp-for="UserInfos.PlayerName">Nome giocatore</label>
+        <input asp-for="UserInfos.PlayerName" class="form-control" />
+        <span class="text-danger" asp-validation-for="UserInfos.PlayerName "></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UserInfos.PlayerSurname">Cognome giocatore</label>
+        <input asp-for="UserInfos.PlayerSurname" class="form-control" />
+        <span class="text-danger" asp-validation-for="UserInfos.PlayerSurname "></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UserInfos.Age">Età del giocatore</label>
+        <input asp-for="UserInfos.Age" class="form-control" />
+        <span class="text-danger" asp-validation-for="UserInfos.Age "></span>
+    </div>
+
+
+    <button type="submit" class="btn btn-outline-primary">Salva</button>
+    <a asp-page="ListPlayer" class="btn btn-danger">Annulla</a>
+</form>
+
+@section Scripts{ 
+    <partial name="_ValidationScriptsPartial"/>
+}

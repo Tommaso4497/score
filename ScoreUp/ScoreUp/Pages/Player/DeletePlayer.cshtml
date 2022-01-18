@@ -1,0 +1,15 @@
+﻿@page "{id:int}"
+@model ScoreUp.Pages.Player.DeletePlayerModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<h2>Elimina utente @Model.UserInfo.PlayerName!</h2>
+<div class="alert alert-danger">
+    Sei sicuro di voler eliminare @Model.UserInfo.PlayerName!?
+</div>
+<form method="post">
+    <button type="submit" class="btn btn-danger">Elimina</button>
+    <a asp-page="ListPlayer" class="btn btn-default">Annulla</a>
+</form>
